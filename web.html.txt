@@ -3,562 +3,128 @@
 
 <head>
     <meta charset="UTF-8">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Akhil's personal portfolio showcasing web development skills, projects and contact information.">
+
+    <meta name="keywords"
+        content="Akhil, portfolio, web developer, HTML, CSS, JavaScript">
+
+    <meta name="author" content="Akhil">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Akhil - Portfolio</title>
+    <title>Akhil | Web Developer Portfolio</title>
 
-    <meta name="description"
-        content="Akhil's personal portfolio website">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #222;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #172554;
-            color: white;
-            padding: 20px;
-            position: sticky;
-            top: 0;
-        }
-
-        header div {
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
-
-        nav a:hover,
-        nav a:focus {
-            text-decoration: underline;
-        }
-
-        section {
-            padding: 70px 8%;
-        }
-
-        .hero {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #dbeafe, #eff6ff);
-        }
-
-        .hero h1 {
-            font-size: 50px;
-            color: #172554;
-        }
-
-        .hero h2 {
-            color: #2563eb;
-            margin: 10px 0;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        .button {
-            display: inline-block;
-            background: #2563eb;
-            color: white;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .button:hover {
-            background: #1d4ed8;
-        }
-
-        .title {
-            text-align: center;
-            color: #172554;
-            margin-bottom: 30px;
-        }
-
-        .about {
-            background: white;
-            text-align: center;
-        }
-
-        .cards {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(220px, 1fr)
-            );
-            gap: 20px;
-        }
-
-        article {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px #ccc;
-        }
-
-        article h3 {
-            color: #2563eb;
-            margin-bottom: 10px;
-        }
-
-        .projects {
-            background: white;
-        }
-
-        aside {
-            background: #dbeafe;
-            padding: 40px;
-            text-align: center;
-        }
-
-        form {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px #ccc;
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #999;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        button {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background: #1d4ed8;
-        }
-
-        a:focus,
-        input:focus,
-        textarea:focus,
-        button:focus {
-            outline: 3px solid orange;
-        }
-
-        footer {
-            background: #172554;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
-
-        @media (max-width: 700px) {
-
-            header div {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero h1 {
-                font-size: 35px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
+    <!-- Header -->
     <header>
+        <div class="container">
+            <h1>Akhil's Portfolio</h1>
 
-        <div>
-
-            <h2>Akhil</h2>
-
+            <!-- Navigation -->
             <nav aria-label="Main navigation">
-
                 <ul>
-                    <li>
-                        <a href="#home">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
-
-                    <li>
-                        <a href="#skills">Skills</a>
-                    </li>
-
-                    <li>
-                        <a href="#projects">Projects</a>
-                    </li>
-
-                    <li>
-                        <a href="#contact">Contact</a>
-                    </li>
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
-
             </nav>
-
         </div>
-
     </header>
 
-
-    <!-- MAIN -->
+    <!-- Main Content -->
     <main>
 
-        <!-- HOME -->
-        <section
-            id="home"
-            class="hero"
-            aria-labelledby="home-title">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="welcome-heading">
+            <div class="container">
 
-            <div>
-
-                <h1 id="home-title">
+                <h2 id="welcome-heading">
                     Hello, I'm Akhil
-                </h1>
-
-                <h2>
-                    Information Science Student
                 </h2>
 
                 <p>
-                    Welcome to my personal portfolio.
-                    I am interested in web development,
-                    programming and modern technologies.
+                    I'm a beginner web developer interested in creating
+                    accessible and user-friendly websites.
                 </p>
 
-                <a
-                    href="#projects"
-                    class="button">
-
+                <a class="button" href="projects.html">
                     View My Projects
-
                 </a>
 
             </div>
-
         </section>
 
+        <!-- Skills Section -->
+        <section class="container" aria-labelledby="skills-heading">
 
-        <!-- ABOUT -->
-        <section
-            id="about"
-            class="about"
-            aria-labelledby="about-title">
-
-            <h2
-                id="about-title"
-                class="title">
-
-                About Me
-
-            </h2>
-
-            <article>
-
-                <h3>Who I Am</h3>
-
-                <p>
-                    My name is Akhil. I am an
-                    Information Science student
-                    interested in web development
-                    and software technology.
-                </p>
-
-            </article>
-
-        </section>
-
-
-        <!-- SKILLS -->
-        <section
-            id="skills"
-            aria-labelledby="skills-title">
-
-            <h2
-                id="skills-title"
-                class="title">
-
-                My Skills
-
-            </h2>
+            <h2 id="skills-heading">My Skills</h2>
 
             <div class="cards">
 
-                <article>
+                <article class="card">
                     <h3>HTML5</h3>
                     <p>
-                        Semantic HTML5 and accessible
-                        website structure.
+                        I use semantic HTML5 elements to create
+                        well-structured web pages.
                     </p>
                 </article>
 
-                <article>
+                <article class="card">
                     <h3>CSS3</h3>
                     <p>
-                        Responsive and attractive
-                        website design.
+                        I use CSS to create responsive and attractive
+                        website designs.
                     </p>
                 </article>
 
-                <article>
+                <article class="card">
                     <h3>JavaScript</h3>
                     <p>
-                        Adding interaction and
+                        I use JavaScript to add interaction and
                         functionality to websites.
                     </p>
                 </article>
 
-                <article>
-                    <h3>Accessibility</h3>
-                    <p>
-                        Creating websites that are
-                        easier for everyone to use.
-                    </p>
-                </article>
-
             </div>
-
         </section>
 
+        <!-- About Preview -->
+        <section class="container about-preview"
+            aria-labelledby="about-heading">
 
-        <!-- PROJECTS -->
-        <section
-            id="projects"
-            class="projects"
-            aria-labelledby="projects-title">
-
-            <h2
-                id="projects-title"
-                class="title">
-
-                My Projects
-
-            </h2>
-
-            <div class="cards">
-
-                <article>
-
-                    <h3>
-                        Vaccination Records Portal
-                    </h3>
-
-                    <p>
-                        A web portal for tracking
-                        vaccination records.
-                    </p>
-
-                </article>
-
-                <article>
-
-                    <h3>
-                        Hostel Complaint Priority
-                    </h3>
-
-                    <p>
-                        A system for managing and
-                        prioritizing hostel complaints.
-                    </p>
-
-                </article>
-
-                <article>
-
-                    <h3>
-                        Personal Portfolio
-                    </h3>
-
-                    <p>
-                        An accessible portfolio
-                        using semantic HTML5.
-                    </p>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- ASIDE -->
-        <aside aria-labelledby="learning">
-
-            <h2 id="learning">
-                Currently Learning
-            </h2>
+            <h2 id="about-heading">About Me</h2>
 
             <p>
-                HTML5, CSS3, JavaScript,
-                Web Accessibility and SEO.
+                I am an Information Science student interested in
+                web development and technology.
             </p>
 
-        </aside>
-
-
-        <!-- CONTACT -->
-        <section
-            id="contact"
-            aria-labelledby="contact-title">
-
-            <h2
-                id="contact-title"
-                class="title">
-
-                Contact Me
-
-            </h2>
-
-            <form id="contactForm">
-
-                <label for="name">
-                    Full Name
-                </label>
-
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    placeholder="Enter your name">
-
-
-                <label for="email">
-                    Email Address
-                </label>
-
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="Enter your email">
-
-
-                <label for="subject">
-                    Subject
-                </label>
-
-                <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    required
-                    placeholder="Enter subject">
-
-
-                <label for="message">
-                    Your Message
-                </label>
-
-                <textarea
-                    id="message"
-                    name="message"
-                    rows="6"
-                    required
-                    placeholder="Write your message">
-                </textarea>
-
-
-                <button type="submit">
-                    Send Message
-                </button>
-
-                <p
-                    id="result"
-                    aria-live="polite">
-                </p>
-
-            </form>
+            <a href="about.html">Read more about me</a>
 
         </section>
 
     </main>
 
-
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
+        <div class="container">
+            <p>
+                &copy; 2026 Akhil. All rights reserved.
+            </p>
 
-        <p>
-            &copy; 2026 Akhil.
-            All Rights Reserved.
-        </p>
-
+            <nav aria-label="Footer navigation">
+                <a href="contact.html">Contact Me</a>
+            </nav>
+        </div>
     </footer>
 
-
-    <!-- JAVASCRIPT -->
-    <script>
-
-        document
-            .getElementById("contactForm")
-            .addEventListener("submit", function(event) {
-
-                event.preventDefault();
-
-                document.getElementById("result").textContent =
-                    "Thank you! Your message has been submitted.";
-
-                this.reset();
-
-            });
-
-    </script>
-
 </body>
-
 </html>
