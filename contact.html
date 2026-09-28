@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="description"
+        content="Contact Akhil through the accessible portfolio contact form.">
+
+    <meta name="keywords"
+        content="contact Akhil, portfolio contact, web developer">
+
+    <meta name="author" content="Akhil">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | Akhil's Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+
+            <h1>Akhil's Portfolio</h1>
+
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html" aria-current="page">
+                        Contact
+                    </a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <section class="container" aria-labelledby="contact-title">
+
+            <h2 id="contact-title">Contact Me</h2>
+
+            <p>
+                Fill out the form below to get in touch with me.
+            </p>
+
+            <form action="#" method="post">
+
+                <!-- Name -->
+                <div class="form-group">
+
+                    <label for="name">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        autocomplete="name"
+                        required
+                        aria-required="true"
+                    >
+
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        required
+                        aria-required="true"
+                    >
+
+                </div>
+
+                <!-- Subject -->
+                <div class="form-group">
+
+                    <label for="subject">Subject</label>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        required
+                        aria-required="true"
+                    >
+
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+
+                    <label for="message">Your Message</label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        required
+                        aria-required="true"
+                    ></textarea>
+
+                </div>
+
+                <!-- Submit -->
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Akhil. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
