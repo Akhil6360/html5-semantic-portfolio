@@ -2,132 +2,1065 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <!-- SEO Meta Tags -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <meta name="description"
-        content="Akhil's personal portfolio showcasing web development skills, projects and contact information.">
-
-    <meta name="keywords"
-        content="Akhil, portfolio, web developer, HTML, CSS, JavaScript">
-
-    <meta name="author" content="Akhil">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          content="Akhil's responsive personal portfolio">
 
     <title>Akhil | Web Developer Portfolio</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+
+        /* ==============================
+           CSS VARIABLES
+        ============================== */
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --background: #f5f7fb;
+            --surface: #ffffff;
+            --text: #1f2937;
+            --muted: #64748b;
+            --header: #111827;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+        }
+
+
+        /* DARK MODE VARIABLES */
+
+        body.dark {
+            --background: #0f172a;
+            --surface: #1e293b;
+            --text: #f1f5f9;
+            --muted: #cbd5e1;
+            --header: #020617;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.40);
+        }
+
+
+        /* ==============================
+           BASIC RESET
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            transition: 0.3s;
+        }
+
+
+        /* ==============================
+           HEADER - FLEXBOX
+        ============================== */
+
+        header {
+            background: var(--header);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 25px;
+        }
+
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+            gap: 25px;
+        }
+
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        nav a:hover,
+        nav a:focus {
+            color: #93c5fd;
+        }
+
+
+        /* DARK MODE BUTTON */
+
+        #themeButton {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+
+            padding: 8px 14px;
+            border-radius: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* ==============================
+           HERO SECTION
+        ============================== */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #dbeafe,
+                    #ede9fe
+                );
+        }
+
+
+        body.dark .hero {
+            background:
+                linear-gradient(
+                    135deg,
+                    #172554,
+                    #312e81
+                );
+        }
+
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 70px);
+            margin-bottom: 10px;
+        }
+
+
+        .hero h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+
+        .hero p {
+            font-size: 18px;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+
+        .button {
+            display: inline-block;
+
+            background: var(--primary);
+            color: white;
+
+            padding: 13px 25px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .button:hover {
+            transform: translateY(-3px);
+            background: var(--secondary);
+        }
+
+
+        /* ==============================
+           GENERAL SECTION
+        ============================== */
+
+        section {
+            padding: 80px 6%;
+        }
+
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+
+        .section-title h2 {
+            font-size: 35px;
+            color: var(--primary);
+        }
+
+
+        .section-title p {
+            color: var(--muted);
+        }
+
+
+        /* ==============================
+           ABOUT - CSS GRID
+        ============================== */
+
+        .about-grid {
+
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 30px;
+        }
+
+
+        .about-card {
+            background: var(--surface);
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .about-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+
+        /* ==============================
+           SKILLS - CSS GRID
+        ============================== */
+
+        .skills-grid {
+
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .skill-card {
+
+            background: var(--surface);
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            border-radius: 15px;
+
+            box-shadow: var(--shadow);
+
+            transition: 0.3s;
+        }
+
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+        }
+
+
+        .skill-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+
+        .skill-card p {
+            color: var(--muted);
+        }
+
+
+        /* ==============================
+           PROJECTS - CSS GRID
+        ============================== */
+
+        .projects {
+            background: var(--surface);
+        }
+
+
+        .project-grid {
+
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .project-card {
+
+            background: var(--background);
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow: var(--shadow);
+
+            transition: 0.3s;
+        }
+
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+
+        .project-card p {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+
+        /* ==============================
+           CONTACT
+        ============================== */
+
+        .contact-container {
+            max-width: 700px;
+            margin: auto;
+        }
+
+
+        form {
+            background: var(--surface);
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            box-shadow: var(--shadow);
+        }
+
+
+        label {
+            display: block;
+
+            margin-bottom: 6px;
+
+            font-weight: bold;
+        }
+
+
+        input,
+        textarea {
+
+            width: 100%;
+
+            padding: 13px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #94a3b8;
+
+            border-radius: 7px;
+
+            font-size: 16px;
+
+            background: var(--background);
+
+            color: var(--text);
+        }
+
+
+        input:focus,
+        textarea:focus,
+        button:focus,
+        a:focus {
+
+            outline: 3px solid orange;
+        }
+
+
+        form button {
+
+            background: var(--primary);
+
+            color: white;
+
+            border: none;
+
+            padding: 13px 25px;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            font-size: 16px;
+        }
+
+
+        form button:hover {
+            background: var(--secondary);
+        }
+
+
+        #formMessage {
+            margin-top: 15px;
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+
+            background: var(--header);
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+
+        /* ==============================
+           TABLET
+        ============================== */
+
+        @media (max-width: 900px) {
+
+            .skills-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .project-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav ul {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 12px;
+            }
+
+
+            .about-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .skills-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .project-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            section {
+
+                padding: 60px 20px;
+            }
+
+
+            .hero {
+
+                min-height: 80vh;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <h1>Akhil's Portfolio</h1>
-            <button class="theme-toggle" type="button" aria-pressed="false">🌙 Dark mode</button>
+    <!-- ==============================
+         HEADER
+    ============================== -->
 
-            <!-- Navigation -->
+    <header>
+
+        <div class="navbar">
+
+            <div class="logo">
+                Akhil
+            </div>
+
+
             <nav aria-label="Main navigation">
+
                 <ul>
-                    <li><a href="index.html" aria-current="page">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="style.css">style</a></li>
-                   <script src="theme.js" defer></script>
+
+                    <li>
+                        <a href="#home">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#about">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#skills">
+                            Skills
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#projects">
+                            Projects
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">
+                            Contact
+                        </a>
+                    </li>
+
                 </ul>
+
             </nav>
+
+
+            <button
+                id="themeButton"
+                type="button"
+                aria-label="Toggle dark mode">
+
+                🌙 Dark
+
+            </button>
+
         </div>
+
     </header>
 
-    <!-- Main Content -->
+
+    <!-- ==============================
+         MAIN
+    ============================== -->
+
     <main>
 
-        <!-- Hero Section -->
-        <section class="hero" aria-labelledby="welcome-heading">
-            <div class="container">
 
-                <h2 id="welcome-heading">
+        <!-- HERO -->
+
+        <section
+            id="home"
+            class="hero"
+            aria-labelledby="hero-title">
+
+            <div class="hero-content">
+
+                <h1 id="hero-title">
                     Hello, I'm Akhil
+                </h1>
+
+                <h2>
+                    Information Science Student
                 </h2>
 
                 <p>
-                    I'm a beginner web developer interested in creating
-                    accessible and user-friendly websites.
+                    I'm a beginner web developer interested
+                    in creating accessible, responsive and
+                    user-friendly websites.
                 </p>
 
-                <a class="button" href="projects.html">
+                <a
+                    href="#projects"
+                    class="button">
+
                     View My Projects
+
                 </a>
 
             </div>
+
         </section>
 
-        <!-- Skills Section -->
-        <section class="container" aria-labelledby="skills-heading">
 
-            <h2 id="skills-heading">My Skills</h2>
+        <!-- ABOUT -->
 
-            <div class="cards">
+        <section
+            id="about"
+            aria-labelledby="about-title">
 
-                <article class="card">
-                    <h3>HTML5</h3>
+            <div class="section-title">
+
+                <h2 id="about-title">
+                    About Me
+                </h2>
+
+                <p>
+                    A little information about me
+                </p>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <article class="about-card">
+
+                    <h3>
+                        Who I Am
+                    </h3>
+
                     <p>
-                        I use semantic HTML5 elements to create
-                        well-structured web pages.
+                        I am an Information Science student
+                        interested in web development,
+                        programming and modern technology.
                     </p>
+
                 </article>
 
-                <article class="card">
-                    <h3>CSS3</h3>
-                    <p>
-                        I use CSS to create responsive and attractive
-                        website designs.
-                    </p>
-                </article>
 
-                <article class="card">
-                    <h3>JavaScript</h3>
+                <article class="about-card">
+
+                    <h3>
+                        My Goal
+                    </h3>
+
                     <p>
-                        I use JavaScript to add interaction and
-                        functionality to websites.
+                        My goal is to improve my technical
+                        skills and create useful,
+                        accessible and responsive websites.
                     </p>
+
                 </article>
 
             </div>
+
         </section>
 
-        <!-- About Preview -->
-        <section class="container about-preview"
-            aria-labelledby="about-heading">
 
-            <h2 id="about-heading">About Me</h2>
+        <!-- SKILLS -->
 
-            <p>
-                I am an Information Science student interested in
-                web development and technology.
-            </p>
+        <section
+            id="skills"
+            aria-labelledby="skills-title">
 
-            <a href="about.html">Read more about me</a>
+            <div class="section-title">
+
+                <h2 id="skills-title">
+                    My Skills
+                </h2>
+
+                <p>
+                    Technologies I am learning
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <article class="skill-card">
+
+                    <h3>
+                        HTML5
+                    </h3>
+
+                    <p>
+                        Semantic and accessible
+                        web structure.
+                    </p>
+
+                </article>
+
+
+                <article class="skill-card">
+
+                    <h3>
+                        CSS3
+                    </h3>
+
+                    <p>
+                        Responsive and modern
+                        website styling.
+                    </p>
+
+                </article>
+
+
+                <article class="skill-card">
+
+                    <h3>
+                        JavaScript
+                    </h3>
+
+                    <p>
+                        Website interaction and
+                        functionality.
+                    </p>
+
+                </article>
+
+
+                <article class="skill-card">
+
+                    <h3>
+                        Responsive Design
+                    </h3>
+
+                    <p>
+                        Websites that work across
+                        different screen sizes.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+
+        <section
+            id="projects"
+            class="projects"
+            aria-labelledby="projects-title">
+
+            <div class="section-title">
+
+                <h2 id="projects-title">
+                    My Projects
+                </h2>
+
+                <p>
+                    Some of my academic projects
+                </p>
+
+            </div>
+
+
+            <div class="project-grid">
+
+
+                <article class="project-card">
+
+                    <h3>
+                        Vaccination Records Portal
+                    </h3>
+
+                    <p>
+                        A web portal for tracking
+                        vaccination records and
+                        managing family members.
+                    </p>
+
+                    <a
+                        href="#contact"
+                        class="button">
+
+                        Learn More
+
+                    </a>
+
+                </article>
+
+
+                <article class="project-card">
+
+                    <h3>
+                        Hostel Complaint Priority
+                    </h3>
+
+                    <p>
+                        A system designed to manage
+                        and prioritize hostel complaints.
+                    </p>
+
+                    <a
+                        href="#contact"
+                        class="button">
+
+                        Learn More
+
+                    </a>
+
+                </article>
+
+
+                <article class="project-card">
+
+                    <h3>
+                        Personal Portfolio
+                    </h3>
+
+                    <p>
+                        A responsive portfolio created
+                        using HTML5 and advanced CSS3.
+                    </p>
+
+                    <a
+                        href="#contact"
+                        class="button">
+
+                        Learn More
+
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section
+            id="contact"
+            aria-labelledby="contact-title">
+
+            <div class="section-title">
+
+                <h2 id="contact-title">
+                    Contact Me
+                </h2>
+
+                <p>
+                    Send me a message
+                </p>
+
+            </div>
+
+
+            <div class="contact-container">
+
+                <form id="contactForm">
+
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        required>
+
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+
+
+                    <label for="message">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        placeholder="Write your message"
+                        required>
+                    </textarea>
+
+
+                    <button type="submit">
+                        Send Message
+                    </button>
+
+
+                    <p
+                        id="formMessage"
+                        aria-live="polite">
+                    </p>
+
+                </form>
+
+            </div>
 
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>
-                &copy; 2026 Akhil. All rights reserved.
-            </p>
 
-            <nav aria-label="Footer navigation">
-                <a href="contact.html">Contact Me</a>
-            </nav>
-        </div>
+    <!-- ==============================
+         FOOTER
+    ============================== -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 Akhil.
+            All Rights Reserved.
+        </p>
+
     </footer>
 
+
+    <!-- ==============================
+         JAVASCRIPT
+    ============================== -->
+
+    <script>
+
+        /* DARK MODE */
+
+        const themeButton =
+            document.getElementById("themeButton");
+
+        themeButton.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle("dark");
+
+                if (
+                    document.body.classList.contains("dark")
+                ) {
+
+                    themeButton.textContent =
+                        "☀️ Light";
+
+                } else {
+
+                    themeButton.textContent =
+                        "🌙 Dark";
+
+                }
+
+            }
+        );
+
+
+        /* CONTACT FORM */
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        contactForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                document.getElementById(
+                    "formMessage"
+                ).textContent =
+                    "Thank you! Your message has been submitted.";
+
+                contactForm.reset();
+
+            }
+        );
+
+    </script>
+
+
 </body>
+
 </html>
